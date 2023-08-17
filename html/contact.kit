@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://kit.fontawesome.com/42a7142021.js" crossorigin="anonymous"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Raleway:wght@200;400;500;600;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="../src/img/favicon/icons8-tree-32.png" type="image/png">
+    <link rel="shortcut icon" href="../src/img/favicon/icons8-tree-32.png" type="image/png">
+    <link rel="stylesheet" href="./dist/css/hamburger.min.css">
+    <link rel="stylesheet" href="./dist/css/main.min.css">
+    <title>Forest Group | Kontakt</title>
+</head>
+
+<body>
+    <!-- @include 'nav.kit' -->
+
+    <main>
+        <section class="contact section">
+            <div class="contact__shadow"></div>
+
+            <div class="wrapper">
+
+                <h2 class="section-title">Skontaktuj się z nami</h2>
+                <form class="contact__form">
+
+                    <div class="contact__form-box">
+                        <input type="text" placeholder="Imię" required>
+                    </div>
+
+                    <div class="contact__form-box">
+                        <input type="email" placeholder="Adres email" required>
+                    </div>
+
+                    <div class="contact__form-box">
+                        <textarea name="msg" required></textarea>
+                    </div>
+
+                    <div class="contact__form-warn">
+                        <p>Pola formularza nie mogą być puste!</p>
+                    </div>
+
+                    <div class="contact__form-regulations">
+                        <input type="checkbox" required>
+                        <p>Zapoznałem się z <a href="#">informacją o administratorze i przetwarzaniu danych</a></p>
+                    </div>
+
+                    <button type="submit" class="contact__form-btn">Wyślij</button>
+                </form>
+
+                <iframe class="contact__map"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2559.898050088978!2d19.890269276944768!3d50.08819561338021!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47165a326d015c3b%3A0x47a12cd367a1f34e!2sRestauracja%20McDonald&#39;s!5e0!3m2!1spl!2spl!4v1691761758000!5m2!1spl!2spl"
+                    width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+
+                <div class="contact__info">
+                    <div class="wrapper">
+                        <p><i class="fa-solid fa-phone"></i> <a href="tel:+48 123 456 789">+48 123 456 789</a></p>
+                        <p><i class="fa-solid fa-envelope"></i> <a
+                                href="mailto:kontakt@forest.com">kontakt@forest.com</a></p>
+                        <p><i class="fa-solid fa-location-dot"></i> ul. Jasnogórska 2, 31-358 Kraków</p>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+
+        <!-- @include 'sitemap-section.kit' -->
+    </main>
+    <!-- @include 'footer.kit' -->
+
+
+    <script src="./dist/js/main.min.js"></script>
+</body>
+
+</html>

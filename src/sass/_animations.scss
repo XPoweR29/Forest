@@ -1,0 +1,13 @@
+@keyframes navItemsAnimation {
+	from {
+		transform: translateY(-500%);
+	}
+
+	to {
+		transform: translateY(0);
+	}
+}
+
+.nav-items-animation {
+	animation: navItemsAnimation .5s both;
+}

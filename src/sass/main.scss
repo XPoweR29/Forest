@@ -1,0 +1,1015 @@
+@import './components';
+@import './colors';
+@import './animations';
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+}
+
+body {
+	font-size: 1.6rem;
+	font-family: 'Montserrat', sans-serif;
+}
+
+//NAV
+.nav--desktop {
+	display: none;
+}
+
+.nav--mobile {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 100;
+	background-color: #fff;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	display: block;
+	.nav {
+		&__box {
+			display: flex;
+			padding: 0.5em 1em;
+
+			.hamburger {
+				padding: 1em;
+				margin-left: auto;
+				z-index: 10;
+			}
+
+			.hamburger.is-active .hamburger-inner,
+			.hamburger.is-active .hamburger-inner:after,
+			.hamburger.is-active .hamburger-inner:before {
+				background-color: $white;
+			}
+		}
+
+		&__logo {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 2.2rem;
+
+			i {
+				color: $dark-gray;
+			}
+		}
+
+		&__links {
+			position: fixed;
+			top: 0;
+			left: 0;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: 100%;
+			width: 100%;
+			transform: translateY(-100%);
+			background-color: $dark-gray;
+			z-index: 5;
+			transition: transform 0.3s;
+			overflow: hidden;
+
+			&--active {
+				transform: translateY(0);
+			}
+		}
+
+		&__link {
+			padding: 2em 0;
+			font-size: 2.4rem;
+			text-decoration: none;
+			color: $white;
+		}
+	}
+}
+
+//HEADER
+.header {
+	position: relative;
+	display: flex;
+	align-items: center;
+	height: 50vh;
+	padding: 1em;
+	background-image: url('../../dist/img/jungle-small.jpg');
+	background-size: cover;
+	background-position: center;
+	z-index: 0;
+
+	&__shadow {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.6);
+		z-index: 0;
+	}
+
+	&__txt {
+		font-size: 1.4rem;
+		font-family: 'Raleway', sans-serif;
+		color: white;
+		z-index: 1;
+
+		h1 {
+			font-weight: 500;
+		}
+
+		p {
+			margin-bottom: 0.5em;
+		}
+	}
+}
+
+//ABOUT-US
+.section {
+	padding: 4em 2em;
+}
+
+.about-us {
+	display: flex;
+	flex-direction: column;
+
+	.section {
+		&__heading {
+			margin-bottom: 1em;
+		}
+
+		&__txt {
+			margin-bottom: 1em;
+		}
+	}
+}
+
+//HERO
+.hero {
+	position: relative;
+	display: flex;
+	background-image: url('../../dist/img/girl-small.jpg');
+	background-position: center;
+	background-size: cover;
+
+	&__shadow {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.6);
+	}
+
+	&__txt {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 3em;
+		z-index: 10;
+
+		p {
+			padding: 2em;
+			font-size: 1.8rem;
+			font-weight: bold;
+			text-align: center;
+			color: $white;
+			border: 1px solid white;
+		}
+	}
+}
+
+//OFFER
+.offer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	&__heading {
+		text-align: center;
+		font-size: 2rem;
+		font-weight: normal;
+		font-family: 'Raleway', sans-serif;
+	}
+
+	&__cards-box {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		margin-top: 1.5em;
+	}
+
+	.card {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		width: 250px;
+		margin: 2em 1em;
+		padding: 2em;
+		font-family: 'Raleway', sans-serif;
+		box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+		border-radius: 8px;
+		transform: scale(1);
+		transition: transform 0.3s;
+
+		&:hover {
+			transform: scale(1.1);
+		}
+
+		&__title {
+			font-weight: normal;
+			text-align: center;
+		}
+
+		&__price {
+			margin-top: 0.5em;
+			font-size: 2.8rem;
+			font-weight: 600;
+			text-align: center;
+		}
+
+		&__options {
+			padding: 1em;
+			font-size: 1.4rem;
+			list-style: none;
+		}
+
+		&__option {
+			display: flex;
+			padding: 0.2em 0;
+
+			i {
+				margin-right: 0.5em;
+				color: $main-green;
+			}
+
+			&--disabled {
+				color: gray;
+
+				i {
+					color: gray;
+				}
+			}
+		}
+
+		&__btn {
+			position: relative;
+			padding: 0.5em 2.5em;
+			margin-top: 1em;
+			overflow: hidden;
+			font-family: 'Raleway', sans-serif;
+			transform: scale(1);
+			background-color: #fff;
+			border-radius: 8px;
+			box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+			border: none;
+			transition: transform .3s;
+
+			&--color {
+				background-color: $main-green;
+				box-shadow: $main-green 0px 3px 8px;
+			}
+
+			&:hover {
+				cursor: pointer;
+				transform: scale(1.2);
+
+				&::after {
+				transform: skew(25deg) translateX(800%);
+				}
+			}
+
+			&::after {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 15%;
+				height: 120%;
+				transform: skew(25deg) translateX(-130%);
+				transition: transform .3s;
+				background-color: rgba(255, 255, 255, 0.2);
+			}
+		}
+	}
+
+	&__another {
+		margin-top: 2em;
+		font-size: 2rem;
+
+		a {
+			position: relative;
+			font-weight: bold;
+			text-decoration: none;
+			color: black;
+			z-index: 1;
+
+			&::after {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				height: 2px;
+				background-color: $main-green;
+				transition: height 0.3s;
+				z-index: -1;
+			}
+
+			&:hover::after {
+				height: 100%;
+			}
+		}
+	}
+}
+
+//SITEMAP
+.sitemap {
+	background-color: $light-gray;
+
+	.wrapper {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&__logo {
+		padding-bottom: 1em;
+		font-size: 2.4rem;
+
+		i {
+			color: $dark-gray;
+		}
+	}
+
+	&__nav {
+		.nav-section {
+			display: flex;
+			flex-direction: column;
+
+			&__title {
+				margin-top: 1em;
+				margin-bottom: 0.5em;
+				font-size: 1.8rem;
+			}
+
+			&__link {
+				padding: 0.5em 0;
+				font-size: 1.2rem;
+				text-decoration: none;
+				color: $dark-gray;
+			}
+		}
+	}
+}
+
+//FOOTER
+.footer {
+	padding: 1.5em 0;
+	background-color: $light-gray;
+	border-top: 1px solid $dark-gray;
+
+	&__txt {
+		font-size: 1.2rem;
+		color: $dark-gray;
+		text-align: center;
+	}
+}
+
+//KONTAKT
+.contact.section {
+	padding-top: 7em;
+}
+
+.contact {
+	position: relative;
+	display: flex;
+	background-image: url('../../src/img/woods-big.jpg');
+	background-size: cover;
+	background-position: center;
+	z-index: 0;
+
+	.wrapper {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&__shadow {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.6);
+		z-index: -1;
+	}
+
+	.section-title {
+		color: white;
+	}
+
+	&__form {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 2em;
+		border-radius: 8px;
+		background-color: rgba(255, 255, 255, 0.2);
+		box-shadow: black 0px 3px 8px;
+
+		&-box {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			margin: 0.5em 0;
+
+			input,
+			textarea {
+				min-width: 80%;
+				border-radius: 8px;
+				border: transparent;
+				box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+			}
+
+			input {
+				height: 3em;
+				padding: 1em;
+			}
+
+			textarea {
+				padding: 1em;
+				min-height: 7em;
+				margin-top: 2em;
+				resize: vertical;
+				font-family: sans-serif;
+			}
+		}
+
+		&-warn {
+			display: none;
+			align-items: center;
+			justify-content: center;
+			border: 2px solid rgba(255, 0, 0, 0.356);
+			background-color: rgba(247, 81, 81, 0.596);
+
+			p {
+				padding: 1em;
+				font-size: 1.4rem;
+				font-weight: bold;
+				color: rgb(104, 7, 7);
+				text-align: center;
+			}
+
+			&--active {
+				display: flex;
+			}
+		}
+
+		&-regulations {
+			display: flex;
+			align-items: start;
+			padding: 1em 0;
+
+			p {
+				margin-left: 0.5em;
+				font-size: 1.4rem;
+				color: white;
+				text-shadow: 0px 0px 2px black;
+			}
+
+			a {
+				color: $main-green;
+			}
+		}
+
+		&-btn {
+			padding: 0.5em 2.5em;
+			margin-top: 4em;
+			font-family: 'Raleway', sans-serif;
+			background-color: $main-green;
+			border-radius: 8px;
+			box-shadow: $main-green 0px 3px 8px;
+			border: none;
+
+			&:hover {
+				cursor: pointer;
+			}
+		}
+	}
+
+	&__map {
+		width: 100%;
+		padding-top: 3em;
+	}
+
+	&__info {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		margin-top: 3em;
+		padding: 2em;
+		background-color: rgba(255, 255, 255, 0.2);
+		box-shadow: black 0px 3px 8px;
+		border-radius: 8px;
+
+		p {
+			display: flex;
+			width: 100%;
+			margin: 0.5em 0;
+			font-size: 1.6rem;
+			color: whitesmoke;
+			text-shadow: 3px 0px 7px rgba(0, 0, 0, 0.8),
+				-3px 0px 7px rgba(0, 0, 0, 0.8), 0px 4px 7px rgba(81, 67, 21, 0.8);
+		}
+
+		i {
+			margin-right: 0.5em;
+			color: $main-green;
+			text-shadow: 0px 0px 5px black;
+		}
+
+		a {
+			text-decoration: none;
+			color: whitesmoke;
+		}
+	}
+}
+
+//OTHER
+.other.section {
+	padding: 8em 2em 6em 2em;
+}
+
+.other {
+	&__option {
+		padding: 3em 0;
+	}
+
+	&__img {
+		width: 100%;
+		margin-bottom: 1em;
+	}
+
+	&__heading {
+		font-size: 2rem;
+		margin-bottom: 0.5em;
+	}
+
+	&__txt {
+		font-size: 1.6rem;
+		margin-bottom: 1em;
+	}
+
+	a {
+		position: relative;
+		font-weight: bold;
+		text-decoration: none;
+		color: black;
+		z-index: 1;
+
+		&::after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 2px;
+			background-color: $main-green;
+			transition: height 0.3s;
+			z-index: -1;
+		}
+
+		&:hover::after {
+			height: 100%;
+		}
+	}
+}
+
+//MEDIA
+
+@media (min-width: 576px) {
+	.nav--mobile {
+		.nav {
+			&__logo {
+				font-size: 3rem;
+			}
+		}
+	}
+
+	.header {
+		padding: 2em;
+		&__txt {
+			font-size: 1.8rem;
+		}
+	}
+
+	.hero {
+		&__txt {
+			p {
+				font-size: 2.6rem;
+			}
+		}
+	}
+
+	.offer {
+		.card {
+			width: 280px;
+			margin: 2em;
+			padding: 3em 2em;
+
+			&__title {
+				font-size: 2.2rem;
+			}
+
+			&__price {
+				font-size: 3rem;
+			}
+
+			&__options {
+				font-size: 1.6rem;
+			}
+
+			&__btn {
+				font-size: 1.6rem;
+			}
+		}
+	}
+
+	.sitemap {
+		&__logo {
+			font-size: 3rem;
+		}
+
+		.nav-section {
+			&__title {
+				font-size: 2rem;
+			}
+
+			&__link {
+				font-size: 1.6rem;
+			}
+		}
+	}
+
+	.contact {
+		&__form {
+			width: 80%;
+		}
+
+		&__map {
+			width: 80%;
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.nav--mobile {
+		display: block;
+	}
+
+	.nav--desktop {
+		display: none;
+	}
+
+	.header {
+		height: 60vh;
+
+		&__txt {
+			font-size: 2rem;
+		}
+	}
+
+	.about-us .section {
+		&__heading {
+			font-size: 2rem;
+		}
+
+		&__txt {
+			font-size: 1.7rem;
+		}
+	}
+
+	.hero {
+		&__txt {
+			padding: 5em 3em;
+			p {
+				width: 100%;
+				font-size: 2.8rem;
+			}
+		}
+	}
+
+	.offer {
+		&__heading {
+			font-size: 2.2rem;
+		}
+	}
+
+	.sitemap {
+		.wrapper {
+			flex-direction: row;
+			justify-content: space-evenly;
+			padding: 0 2em;
+		}
+
+		&__logo {
+			display: flex;
+			align-items: center;
+			justify-content: strat;
+			width: 40%;
+			padding: 0;
+			font-size: 2.6rem;
+		}
+
+		&__nav {
+			display: flex;
+			justify-content: space-between;
+			flex-grow: 1;
+		}
+	}
+
+	.footer {
+		&__txt {
+			font-size: 1.4rem;
+		}
+	}
+
+	.contact {
+		&__form {
+			width: 80%;
+			padding: 4em;
+			&-box {
+				input,
+				textarea {
+					min-width: 70%;
+					font-size: 1.6rem;
+				}
+			}
+
+			&-btn {
+				font-size: 1.8rem;
+			}
+		}
+
+		&__map {
+			width: 80%;
+		}
+
+		&__info {
+			padding: 2em 5em;
+
+			p {
+				font-size: 1.9rem;
+			}
+		}
+	}
+
+	.other {
+		&__option {
+			display: flex;
+
+			&.option2 {
+				flex-direction: row-reverse;
+			}
+		}
+
+		&__describe {
+			padding: 0 1em;
+		}
+
+		&__img {
+			width: 50%;
+			margin-bottom: 0;
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.nav--mobile {
+		display: none;
+	}
+
+	.nav--desktop {
+		display: block;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		background-color: #fff;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+		z-index: 100;
+		.nav {
+			// height: 4em;
+
+			&__box {
+				display: flex;
+				padding: 0 1em;
+			}
+
+			&__logo {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 4rem;
+
+				p {
+					margin: 0;
+
+					i {
+						color: $dark-gray;
+					}
+				}
+			}
+
+			&__links {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				height: 100%;
+				margin-left: auto;
+			}
+
+			&__link {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 100%;
+				padding: 1em 2em;
+				font-size: 2.4rem;
+				text-decoration: none;
+				color: $black;
+				transition: background-color 0.3s, color 0.3s;
+
+				&:hover {
+					background-color: $black;
+					color: $white;
+				}
+
+				&--active {
+					background-color: black;
+					color: #fff;
+				}
+			}
+		}
+	}
+
+	.header {
+		background-image: url('../../dist/img/jungle-big.jpg');
+		padding: 3em;
+
+		&__txt {
+			font-size: 2.2rem;
+		}
+	}
+
+	.section {
+		padding: 6em 2em;
+	}
+
+	.about-us {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: 4em 4em 20em;
+
+		.section {
+			&-title {
+				grid-column: 1/-1;
+			}
+
+			&__heading {
+				grid-column: 2/3;
+				grid-row: 2/3;
+				display: flex;
+				align-items: center;
+				margin: 0;
+				padding: 0 1em;
+			}
+
+			&__txt {
+				grid-column: 2/3;
+				grid-row: 3/4;
+				margin: 0;
+				padding: 0 1em;
+			}
+
+			&__img {
+				grid-column: 1/2;
+				grid-row: 2/4;
+				width: 100%;
+				padding: 1em;
+			}
+		}
+	}
+
+	.hero {
+		background-image: url('../../dist/img/girl-big.jpg');
+	}
+
+	.offer {
+		.card {
+			&__title {
+				font-size: 2rem;
+			}
+		}
+	}
+
+	.sitemap {
+		.wrapper {
+			padding: 0 9em;
+		}
+
+		&__logo {
+			font-size: 3rem;
+		}
+	}
+
+	.contact {
+		&__form {
+			&-box {
+				input,
+				textarea {
+					min-width: 60%;
+				}
+			}
+		}
+
+		&__map {
+			width: 70%;
+		}
+	}
+
+	.other {
+		&__option {
+			display: flex;
+		}
+
+		&__describe {
+			padding: 0 2em;
+		}
+
+		&__img {
+			width: 40%;
+		}
+	}
+}
+
+@media (min-width: 1200px) {
+	.about-us .section {
+		&__heading {
+			padding: 0 2em;
+		}
+
+		&__txt {
+			padding: 0 2em;
+		}
+
+		&__img {
+			padding: 1.5em;
+		}
+	}
+
+	.hero {
+		&__txt {
+			padding: 7em 3em;
+		}
+	}
+
+	.offer {
+		.card {
+			margin: 2em 2.2em;
+		}
+	}
+
+	.sitemap {
+		.wrapper {
+			padding: 0 10em;
+		}
+
+		&__logo {
+			font-size: 3.4rem;
+		}
+
+		&__nav {
+			justify-content: center;
+
+			.nav-section {
+				width: 30%;
+				margin: 0 1em;
+			}
+		}
+	}
+}
